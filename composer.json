@@ -1,0 +1,25 @@
+{
+    "name": "mrlijan/restmold",
+    "description": "Restmold, A RestAPI wrapper for 3rd party servers",
+    "autoload": {
+        "psr-4": {
+            "Mrlijan\\Restmold\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "MrLijan",
+            "email": "liramj21@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.4"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mrlijan\\Restmold\\RestmoldServiceProvider"
+            ]
+        }
+    }
+}
