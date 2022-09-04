@@ -1,0 +1,45 @@
+<?php
+
+namespace {{NAMESPACE}};
+
+use MrLijan\Restmold\RestModel;
+
+class {{CLASSNAME}} extends {{EXTENDS}}
+{
+
+    /**
+     * The base URI for that service
+     *
+     * @var string
+     */
+    protected string $baseURI = 'http://localhost:8080/api';
+
+    /**
+     * Return the Request's headers
+     * * Can be used for an authentication process
+     *
+     * @return array<string, string>
+     */
+    protected function headers(): array
+    {
+        return [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+        ];
+    }
+
+    /**
+     * Return the Request's routemap
+     *
+     * @return array<string, array>
+     */
+    protected function routes(): array
+    {
+        return [
+            'index' => [
+                'method' => 'GET',
+                'path' => '/index'
+            ]
+        ];
+    }
+}
