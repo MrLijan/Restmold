@@ -3,7 +3,6 @@
 namespace Mrlijan\Restmold;
 
 use Illuminate\Support\ServiceProvider;
-use Mrlijan\Restmold\ApiExample;
 
 class RestmoldServiceProvider extends ServiceProvider
 {
@@ -12,6 +11,11 @@ class RestmoldServiceProvider extends ServiceProvider
     // publish configuration files or database migration
     public function boot()
     {
+        if($this->isRunningConsole()) {
+            $this->commands([
+                Console\GenerateCommand::class
+            ]);
+        }
     }
 
     // Extending functionality from other classes
@@ -19,6 +23,15 @@ class RestmoldServiceProvider extends ServiceProvider
     // create singleton classes
     public function register()
     {
-        // dd('REGISTRE');
+
+    }
+
+    /**
+     * Check if application running in console
+     * @return bool
+     */
+    private function isRunningConsole(): bool
+    {
+        return $this->app->runningInConsole();
     }
 }
