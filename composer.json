@@ -1,6 +1,14 @@
 {
     "name": "mrlijan/restmold",
-    "description": "Restmold, A RestAPI wrapper for 3rd party servers",
+    "description": "Restmold, Model-based HTTP client for Laravel applications.",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "api",
+        "http",
+        "https",
+        "guzzle"
+    ],
     "autoload": {
         "psr-4": {
             "Mrlijan\\Restmold\\": "src/"
@@ -13,6 +21,7 @@
         }
     ],
     "require": {
+        "php": "^7.4|^8.0",
         "guzzlehttp/guzzle": "^7.4"
     },
     "extra": {
