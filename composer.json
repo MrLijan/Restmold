@@ -2,6 +2,7 @@
     "name": "mrlijan/restmold",
     "description": "Restmold, Model-based HTTP client for Laravel applications.",
     "license": "MIT",
+    "version": "1.0.0",
     "keywords": [
         "laravel",
         "api",
