@@ -1,6 +1,6 @@
 <?php
 
-namespace Mrlijan\Restmold\Factory;
+namespace MrLijan\Restmold\Factory;
 
 class RestModelFactory
 {

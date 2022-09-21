@@ -1,20 +1,18 @@
 <?php
 
-namespace Mrlijan\Restmold;
+namespace MrLijan\Restmold;
 
 use BadMethodCallException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
-use Illuminate\Routing\Pipeline;
-use GuzzleHttp\Middleware;
+
 use GuzzleHttp\Psr7\Request;
-use Psr\Http\Message\RequestInterface;
 
 /**
- * @method abstract array getHeaders()
- * @method abstract array getRoutes()
- * @method abstract string getBaseURI()
- * @method abstract mixed pipe(Response $response)
+ * @method abstract array headers()
+ * @method abstract array routes()
+ * @method abstract Request requestPipe(Request $request)
+ * @method abstract Response responsePipe(Response $response)
  */
 abstract class RestModel
 {
@@ -79,7 +77,7 @@ abstract class RestModel
     public function __construct()
     {
         $this->routeMap = $this->routes();
-        $this->internalHeaders = array_merge($this->internalHeaders, $this->getHeaders());
+        $this->internalHeaders = array_merge($this->internalHeaders, $this->headers());
         $this->guzzle_client = new Client();
     }
 
@@ -98,7 +96,7 @@ abstract class RestModel
 
     /**
      * The response is being streamed here
-     * * _Can be used to manipulate the response data_
+     * * _Can be used to manipulate response data_
      * * _Can be overwritten_
      * * ___Return $response when not in use___
      * @param Response $response
@@ -110,12 +108,12 @@ abstract class RestModel
     }
 
     /**
-     * The response is being streamed here
-     * * _Can be used to manipulate the response data_
+     * The request is being streamed here
+     * * _Can be used to manipulate request data_
      * * _Can be overwritten_
-     * * ___Return $response when not in use___
-     * @param Response $response
-     * @return Response
+     * * ___Return $request when not in use___
+     * @param Request $response
+     * @return Request
      */
     protected function requestPipe(Request $request): Request
     {
@@ -188,8 +186,14 @@ abstract class RestModel
         $splitSections = explode($this->querySeparator, $path);
         $params = explode('&', $splitSections[1]);
         $readyParams = [];
-        foreach ($params as $param) {
-            $readyParams[] = $param . '=' . $query[$param];
+        foreach ($params as $key => $param) {
+            $paramString = $param . '=' . $query[$param];
+
+            if ($key !== array_key_last($params)) {
+                $paramString = $paramString . '&';
+            }
+
+            $readyParams[] = $paramString;
         }
 
         $finalString = implode($this->querySeparator, [$splitSections[0], implode($readyParams)]);
@@ -204,9 +208,10 @@ abstract class RestModel
      */
     private function send(array $requestConfig): Response
     {
-        $requestUri = $this->baseUri . $requestConfig['route'];
+        $requestUri = $this->baseURI . $requestConfig['route'];
         $request = new Request($requestConfig['method'], $requestUri, $this->internalHeaders, json_encode($requestConfig['body'])); // Request here before sent;
 
-        return $this->requestPipe($request);
+        $request = $this->requestPipe($request);
+        return $this->guzzle_client->send($request);
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace Mrlijan\Restmold\Console;
+namespace MrLijan\Restmold\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Pluralizer;
 use Illuminate\Filesystem\Filesystem;
-use Mrlijan\Restmold\Factory\RestModelFactory;
+use MrLijan\Restmold\Factory\RestModelFactory;
 
 class GenerateCommand extends Command
 {
