@@ -106,4 +106,23 @@ class StudentsController extends BaseController
 }
 ```
 
+# Piping Requests & Responses
+Sometimes, collective pipes are necessary in some services, and for these cases, a request and response pipes have been created. In order to use them just override the following methods: 
+
+```php
+protected function requestPipe(Request $request): Request
+{
+    // ... manipulate the data, and return the request
+    return $request;
+}
+
+
+protected function responsePipe(Response $response): Response
+{
+    // ... manipulate the data, and return the response
+    return $response;
+}
+```
+
+
 
