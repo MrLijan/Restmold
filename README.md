@@ -87,8 +87,6 @@ class StudentsController extends BaseController
 }
 ```
 
-<br/><br/>
-
 ### Using request body
 ```php
 use App\ApiModels\StudentsAPIModel;
@@ -108,6 +106,8 @@ class StudentsController extends BaseController
     }
 }
 ```
+
+<br/><br/>
 
 # Piping Requests & Responses
 Sometimes, collective pipes are necessary in some services, and for these cases, a request and response pipes have been created. In order to use them just override the following methods: 
