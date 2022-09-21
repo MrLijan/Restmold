@@ -87,6 +87,8 @@ class StudentsController extends BaseController
 }
 ```
 
+<br/><br/>
+
 ### Using request body
 ```php
 use App\ApiModels\StudentsAPIModel;
