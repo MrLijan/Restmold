@@ -1,6 +1,6 @@
 <?php
 
-namespace Mrlijan\Restmold;
+namespace MrLijan\Restmold;
 
 use BadMethodCallException;
 use GuzzleHttp\Client;

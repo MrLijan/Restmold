@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Mrlijan\\Restmold\\": "src/"
+            "MrLijan\\Restmold\\": "src/"
         }
     },
     "authors": [
@@ -27,7 +27,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Mrlijan\\Restmold\\RestmoldServiceProvider"
+                "MrLijan\\Restmold\\RestmoldServiceProvider"
             ]
         }
     }
