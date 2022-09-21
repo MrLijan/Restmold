@@ -61,7 +61,7 @@ protected function routes(): array
 }
 ```
 
-## Implementations
+# Implementations
 
 ### Using Query Params
 Once everything is ready and configured, the service is prepared to use. 
