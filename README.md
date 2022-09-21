@@ -99,12 +99,15 @@ class StudentsController extends BaseController
             'body' => [
                 'firstName' => 'John',
                 'lastName' => 'Dow'
-                'age' => '22'
+                'age' => '24',
+                'email' => 'john.d@example.com'
             ]
         ]);
     }
 }
 ```
+
+<br/><br/>
 
 # Piping Requests & Responses
 Sometimes, collective pipes are necessary in some services, and for these cases, a request and response pipes have been created. In order to use them just override the following methods: 
