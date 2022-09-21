@@ -99,7 +99,8 @@ class StudentsController extends BaseController
             'body' => [
                 'firstName' => 'John',
                 'lastName' => 'Dow'
-                'age' => '22'
+                'age' => '24',
+                'email' => 'john.d@example.com'
             ]
         ]);
     }
