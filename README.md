@@ -7,6 +7,7 @@ The inspiration for this project started when the company I worked for migrated 
 Time passed, and we found ourselves writing API services repeatedly as the number of services grew. So, inspired by the flow of Laravel's models, Restmold has born out.
 
 
+<br/><br/>
 # Usage
 This guide assumes that your Laravel project was already set up. 
 
@@ -17,6 +18,7 @@ php artisan restmold:generate <service name>
 ```
 
 
+<br/><br/>
 # Class Structure
 Each restmold concrete class will derive its props and methods from the ```RestModel``` abstract class and should also implement the following properties and methods to work properly:
 
@@ -27,6 +29,7 @@ Each restmold concrete class will derive its props and methods from the ```RestM
 | Method   | **routes**  | Used to construct the service's structure| 
 
 
+<br/><br/>
 # Class Configuration
 the routes method is being used to construct the service's structure. This means that every array index listed below will be determined as a method for this service.
 
@@ -61,6 +64,8 @@ protected function routes(): array
 }
 ```
 
+
+<br/><br/>
 # Implementations
 
 ### Using Query Params
