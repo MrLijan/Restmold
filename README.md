@@ -1,3 +1,21 @@
+# TL;DR
+
+### Installation
+```
+composer require mrlijan/restmold
+```
+
+### Usage
+Restmold is so easy-to-use; you just need to run the generate command to create a new API model. As a result, a new folder named "ApiModels" will be created under the ```\App``` folder, including the new concrete class.
+
+```
+php artisan restmold:generate <service name>
+```
+
+<br/><br/>
+> :warning: This guide assumes that your Laravel (8+) project was already set up.
+
+<br/><br/>
 # Introduction
 Restmold (pronounced /restː/ /mold:/) is a Laravel package for modeling 3rd party HTTP services and as an HTTP client. Using this package will allow you to model your external HTTP services. 
 The magic behind Restmold is that you don't need to repeatedly re-code your API class services. 
@@ -5,17 +23,6 @@ The magic behind Restmold is that you don't need to repeatedly re-code your API 
 ### Inspiration
 The inspiration for this project started when the company I worked for migrated our giant monolith into a bunch of small microservices.
 Time passed, and we found ourselves writing API services repeatedly as the number of services grew. So, inspired by the flow of Laravel's models, Restmold has born out.
-
-
-<br/><br/>
-# Usage
-This guide assumes that your Laravel project was already set up. 
-
-Restmold is so easy-to-use; you just need to run the generate command to create a new API model. As a result, a new folder named "ApiModels" will be created under the ```\App``` folder, including the new concrete class.
-
-```
-php artisan restmold:generate <service name>
-```
 
 
 <br/><br/>
